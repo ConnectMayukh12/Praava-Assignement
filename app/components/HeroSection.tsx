@@ -12,14 +12,14 @@ export default function HeroSection() {
       className="relative min-h-screen overflow-hidden font-sans"
       style={{ backgroundColor: COLORS.background }}
     >
-      {/* Background Grey Pills */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* Background Grey Pills - Hidden on mobile */}
+      <div className="absolute inset-0 pointer-events-none hidden md:block">
         <BackgroundPills pills={leftPills} />
         <BackgroundPills pills={rightPills} />
       </div>
 
-      {/* Floating Cards */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* Floating Cards - Absolute positioned for large screens */}
+      <div className="absolute inset-0 pointer-events-none hidden lg:block">
         {floatingCardsData.map((card, index) => (
           <FloatingCard key={index} {...card} />
         ))}
@@ -27,6 +27,18 @@ export default function HeroSection() {
 
       {/* Hero Content */}
       <HeroContent />
+
+      {/* Floating Cards - Stacked for mobile/tablet */}
+      <div className="lg:hidden flex flex-col gap-4 px-6 pb-12">
+        {floatingCardsData.map((card, index) => (
+          <FloatingCard
+            key={index}
+            {...card}
+            position={{ top: "auto", left: "auto" }}
+            rotation="0deg"
+          />
+        ))}
+      </div>
     </section>
   );
 }

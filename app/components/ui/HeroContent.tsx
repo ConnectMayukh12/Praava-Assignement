@@ -2,9 +2,9 @@ interface HeroContentProps {}
 
 export default function HeroContent({}: HeroContentProps) {
   return (
-    <div className="relative z-10 container mx-auto px-[200px] pt-11">
-      <div className="w-7xl">
-        <h1 className="text-3xl md:text-6xl lg:text-[4.1rem] font-light leading-[1.15] mb-8">
+    <div className="relative z-10 container mx-auto px-6 sm:px-12 md:px-20 lg:px-32 xl:px-[200px] pt-11 md:pt-16 lg:pt-20">
+      <div className="max-w-4xl">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4.1rem] font-light leading-[1.15] mb-6 md:mb-8">
           <span className="text-[#8B87A8]">A single platform to </span>
           <br />
           <span className="text-[#5d5878b5] font-bold">manage</span>
@@ -14,7 +14,7 @@ export default function HeroContent({}: HeroContentProps) {
           <span className="text-[#5d5878b5] font-bold">legal work</span>
         </h1>
 
-        <p className="md:text-xl text-[#5B68F4] leading-relaxed max-w-[500px] font-medium">
+        <p className="text-base md:text-lg lg:text-xl text-[#5B68F4] leading-relaxed max-w-[500px] font-medium">
           Track matters, coordinate schedules, manage clients, centralize
           documents, and handle communication – all in one system.
         </p>

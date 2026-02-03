@@ -17,15 +17,17 @@ export default function FloatingCard({
   message,
   time,
 }: FloatingCardProps) {
+  const isStackedLayout = position.top === "auto" && position.left === "auto";
+
   return (
     <div
-      className={`absolute rounded-[50px] shadow-lg flex items-center px-8 py-6 ${image ? "gap-0" : "gap-4"}`}
+      className={`shadow-lg flex items-center px-8 py-6 ${image ? "gap-0" : "gap-4"} ${isStackedLayout ? "relative w-full rounded-[50px]" : "absolute rounded-[50px]"}`}
       style={{
-        ...position,
+        ...(!isStackedLayout && position),
         backgroundColor: bgColor,
-        transform: `rotate(${rotation}deg)`,
-        width,
-        height,
+        transform: isStackedLayout ? undefined : `rotate(${rotation}deg)`,
+        width: isStackedLayout ? "100%" : width,
+        height: isStackedLayout ? "80px" : height,
       }}
     >
       {image ? (
