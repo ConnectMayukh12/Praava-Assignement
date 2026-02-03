@@ -1,25 +1,7 @@
 import { LucideIcon } from "lucide-react";
 import Image from "next/image";
-
-interface FloatingCardProps {
-  icon?: LucideIcon;
-  title: string;
-  bgColor: string;
-  textColor?: string;
-  position: {
-    top?: string;
-    bottom?: string;
-    left?: string;
-    right?: string;
-  };
-  rotation: number;
-  width: string;
-  height: string;
-  image?: string;
-  subtitle?: string;
-  message?: string;
-  time?: string;
-}
+import { FloatingCardProps } from "@/app/types";
+import { COLORS } from "@/app/constants/colors";
 
 export default function FloatingCard({
   icon: Icon,
@@ -37,7 +19,7 @@ export default function FloatingCard({
 }: FloatingCardProps) {
   return (
     <div
-      className={`absolute rounded-[40px] shadow-lg flex items-center px-8 py-6 ${image ? "gap-0" : "gap-4"}`}
+      className={`absolute rounded-[50px] shadow-lg flex items-center px-8 py-6 ${image ? "gap-0" : "gap-4"}`}
       style={{
         ...position,
         backgroundColor: bgColor,
@@ -51,13 +33,17 @@ export default function FloatingCard({
         <>
           {/* Orange accent line before image */}
           <div
-            className="flex-shrink-0 h-full w-1"
-            style={{ backgroundColor: "#F4A261" }}
+            className="flex-shrink-0 h-full w-1 mr-3"
+            style={{ backgroundColor: COLORS.cards.matters }}
           />
           <div className="flex-shrink-0">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-blue-500 flex items-center justify-center text-white font-bold text-lg">
-              {title.charAt(0)}
-            </div>
+            <Image
+              src="/John Image.png"
+              alt={title}
+              width={48}
+              height={48}
+              className="rounded-full object-cover"
+            />
           </div>
           <div className="flex-1 pl-4">
             <h3
