@@ -35,7 +35,7 @@ export default function HeroSection() {
             key={index}
             {...card}
             position={{ top: "auto", left: "auto" }}
-            rotation="0deg"
+            rotation={0}
           />
         ))}
       </div>
